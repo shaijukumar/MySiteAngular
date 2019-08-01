@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-4">
+
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+                <input type="hidden" name="SiteConfigID" #SiteConfigID="ngModel" [(ngModel)]="service.formData.SiteConfigID">
+                <div class="form-group">
+                    <label>Key</label>
+                    <input name="Key" #Key="ngModel" [(ngModel)]="service.formData.Key" class="form-control" required>  
+                    <div class="validation-error" *ngIf="Key.invalid && Key.touched">This field is required.</div>       
+                </div>
+
+             <div class="form-group">
+                <label>Value</label>
+                <input name="Value" #Value="ngModel" [(ngModel)]="service.formData.Value" class="form-control" required>
+                <div class="validation-error" *ngIf="Value.invalid && Value.touched">This field is required.</div>       
+             </div>
+        
+             <div class="form-group">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+              </div>        
+        </form>
+    </div>
+</div>
